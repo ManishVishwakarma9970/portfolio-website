@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ---------------- Body & Global ---------------- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite; /* smoother & slower */
+    color: #fff;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Gradient Animation */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ---------------- Cards ---------------- */
+.card {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Depth added */
+}
+
+/* ---------------- Navigation ---------------- */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ---------------- Typewriter ---------------- */
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid #00ffe0; /* matches theme */
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00ffe0; }
+}
+
+/* ---------------- Floating Elements ---------------- */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ---------------- Mobile Menu ---------------- */
+.mobile-nav-link {
+    color: #00ffe0;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+}
+.mobile-nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(to right, #00ffe0, #00ff9d);
+    transition: width 0.3s ease;
+}
+.mobile-nav-link:hover::after {
+    width: 100%;
+}
+.mobile-nav-link:hover {
+    color: #00ff9d;
+    font-weight: 600; /* slightly bolder on hover */
+}
+
+/* ---------------- Project Cards ---------------- */
+.project-card img {
+    transition: transform 0.3s ease;
+}
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ---------------- Toast ---------------- */
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+#toast.show {
+    opacity: 1;
+}
